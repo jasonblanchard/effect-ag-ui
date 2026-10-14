@@ -10,6 +10,7 @@
     "start": "node .output/server/index.mjs"
   },
   "dependencies": {
+    "@effect/ai-anthropic": "^4.0.4",
     "@tanstack/ai": "^0.69.0",
     "@tanstack/ai-anthropic": "^0.22.0",
     "@tanstack/ai-react": "^0.30.4",

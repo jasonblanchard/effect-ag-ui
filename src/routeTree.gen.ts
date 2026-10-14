@@ -19,6 +19,7 @@ import { Route as RedirectRouteImport } from './routes/redirect'
 import { Route as UsersRouteImport } from './routes/users'
 import { Route as PathlessLayoutNestedLayoutRouteImport } from './routes/_pathlessLayout/_nested-layout'
 import { Route as ApiChatRouteImport } from './routes/api/chat'
+import { Route as ApiGenerateRouteImport } from './routes/api/generate'
 import { Route as ApiUsersRouteImport } from './routes/api/users'
 import { Route as PostsIndexRouteImport } from './routes/posts.index'
 import { Route as PostsPostIdRouteImport } from './routes/posts.$postId'
@@ -78,6 +79,11 @@ const ApiChatRoute = ApiChatRouteImport.update({
   path: '/api/chat',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ApiGenerateRoute = ApiGenerateRouteImport.update({
+  id: '/api/generate',
+  path: '/api/generate',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ApiUsersRoute = ApiUsersRouteImport.update({
   id: '/api/users',
   path: '/api/users',
@@ -135,6 +141,7 @@ export interface FileRoutesByFullPath {
   '/redirect': typeof RedirectRoute
   '/users': typeof UsersRouteWithChildren
   '/api/chat': typeof ApiChatRoute
+  '/api/generate': typeof ApiGenerateRoute
   '/api/users': typeof ApiUsersRouteWithChildren
   '/posts/$postId': typeof PostsPostIdRoute
   '/users/$userId': typeof UsersUserIdRoute
@@ -152,6 +159,7 @@ export interface FileRoutesByTo {
   '/deferred': typeof DeferredRoute
   '/redirect': typeof RedirectRoute
   '/api/chat': typeof ApiChatRoute
+  '/api/generate': typeof ApiGenerateRoute
   '/api/users': typeof ApiUsersRouteWithChildren
   '/posts/$postId': typeof PostsPostIdRoute
   '/users/$userId': typeof UsersUserIdRoute
@@ -174,6 +182,7 @@ export interface FileRoutesById {
   '/users': typeof UsersRouteWithChildren
   '/_pathlessLayout/_nested-layout': typeof PathlessLayoutNestedLayoutRouteWithChildren
   '/api/chat': typeof ApiChatRoute
+  '/api/generate': typeof ApiGenerateRoute
   '/api/users': typeof ApiUsersRouteWithChildren
   '/posts/$postId': typeof PostsPostIdRoute
   '/users/$userId': typeof UsersUserIdRoute
@@ -195,6 +204,7 @@ export interface FileRouteTypes {
     | '/redirect'
     | '/users'
     | '/api/chat'
+    | '/api/generate'
     | '/api/users'
     | '/posts/$postId'
     | '/users/$userId'
@@ -212,6 +222,7 @@ export interface FileRouteTypes {
     | '/deferred'
     | '/redirect'
     | '/api/chat'
+    | '/api/generate'
     | '/api/users'
     | '/posts/$postId'
     | '/users/$userId'
@@ -233,6 +244,7 @@ export interface FileRouteTypes {
     | '/users'
     | '/_pathlessLayout/_nested-layout'
     | '/api/chat'
+    | '/api/generate'
     | '/api/users'
     | '/posts/$postId'
     | '/users/$userId'
@@ -254,6 +266,7 @@ export interface RootRouteChildren {
   RedirectRoute: typeof RedirectRoute
   UsersRoute: typeof UsersRouteWithChildren
   ApiChatRoute: typeof ApiChatRoute
+  ApiGenerateRoute: typeof ApiGenerateRoute
   ApiUsersRoute: typeof ApiUsersRouteWithChildren
   PostsPostIdDeepRoute: typeof PostsPostIdDeepRoute
 }
@@ -328,6 +341,13 @@ declare module '@tanstack/react-router' {
       path: '/api/chat'
       fullPath: '/api/chat'
       preLoaderRoute: typeof ApiChatRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/generate': {
+      id: '/api/generate'
+      path: '/api/generate'
+      fullPath: '/api/generate'
+      preLoaderRoute: typeof ApiGenerateRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/api/users': {
@@ -472,6 +492,7 @@ const rootRouteChildren: RootRouteChildren = {
   RedirectRoute: RedirectRoute,
   UsersRoute: UsersRouteWithChildren,
   ApiChatRoute: ApiChatRoute,
+  ApiGenerateRoute: ApiGenerateRoute,
   ApiUsersRoute: ApiUsersRouteWithChildren,
   PostsPostIdDeepRoute: PostsPostIdDeepRoute,
 }
