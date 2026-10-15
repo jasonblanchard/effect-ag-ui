@@ -9,7 +9,7 @@ export const Route = createFileRoute("/chat")({
 export function Chat() {
   const [input, setInput] = useState("");
   const { messages, sendMessage, isLoading, stop } = useChat({
-    connection: fetchServerSentEvents("/api/chat"),
+    connection: fetchServerSentEvents("/api/agent"),
   });
 
   return (

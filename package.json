@@ -7,9 +7,11 @@
     "dev": "vite dev",
     "build": "vite build && tsc --noEmit",
     "preview": "vite preview",
-    "start": "node .output/server/index.mjs"
+    "start": "node .output/server/index.mjs",
+    "test": "vitest run"
   },
   "dependencies": {
+    "@ag-ui/core": "^1.0.0",
     "@effect/ai-anthropic": "^4.0.4",
     "@tanstack/ai": "^0.69.0",
     "@tanstack/ai-anthropic": "^0.22.0",
@@ -24,6 +26,8 @@
     "zod": "^4.4.3"
   },
   "devDependencies": {
+    "@ag-ui/client": "^1.0.2",
+    "@effect/vitest": "^4.0.4",
     "@tailwindcss/vite": "^4.2.2",
     "@types/node": "^22.5.4",
     "@types/react": "^19.0.8",
@@ -33,6 +37,7 @@
     "nitro": "^3.0.260903-beta",
     "tailwindcss": "^4.2.2",
     "typescript": "npm:@typescript/typescript6@^6.0.2",
-    "vite": "^8.0.14"
+    "vite": "^8.0.14",
+    "vitest": "^5.0.4"
   }
 }
